@@ -11,12 +11,12 @@ node {
 
     stage('clean') {
         sh "chmod +x mvnw"
-        sh "./mvnw clean"
+        sh "./mvnw.cmd clean"
     }
 
     stage('backend tests') {
         try {
-            sh "./mvnw test"
+            sh "./mvnw.cmd test"
         } catch(err) {
             throw err
         } finally {
@@ -25,7 +25,7 @@ node {
     }
 
     stage('packaging') {
-        sh "./mvnw verify -Pprod -DskipTests"
+        sh "./mvnw.cmd verify -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
     }
 }
