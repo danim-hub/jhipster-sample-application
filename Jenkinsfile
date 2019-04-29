@@ -10,6 +10,8 @@ node {
     }
 
     stage('clean') {
+        env.JAVA_HOME="${tool 'jdk-8u181'}"
+        env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
         bat "./mvnw.cmd clean"
     }
 
