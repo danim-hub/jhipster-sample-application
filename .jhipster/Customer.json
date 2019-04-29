@@ -1,0 +1,26 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "cLICOD",
+            "javadoc": "Customer code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cLINOM",
+            "javadoc": "Customer name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190429214302",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhipsterSampleApplication",
+    "applications": "*",
+    "microserviceName": "jhipsterSampleApplication"
+}
