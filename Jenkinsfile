@@ -6,17 +6,17 @@ node {
     }
 
     stage('check java') {
-        sh "java -version"
+        bat "java -version"
     }
 
     stage('clean') {
-        sh "chmod +x mvnw"
-        sh "./mvnw.cmd clean"
+        bat "chmod +x mvnw"
+        bat "./mvnw.cmd clean"
     }
 
     stage('backend tests') {
         try {
-            sh "./mvnw.cmd test"
+            bat "./mvnw.cmd test"
         } catch(err) {
             throw err
         } finally {
@@ -25,7 +25,7 @@ node {
     }
 
     stage('packaging') {
-        sh "./mvnw.cmd verify -Pprod -DskipTests"
+        bat "./mvnw.cmd verify -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
     }
 }
